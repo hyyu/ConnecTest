@@ -14,13 +14,42 @@
         style="@style/FacebookBtn"
         />
 
+    <Button
+        android:id="@+id/fb_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/facebook_button"
+        android:layout_marginBottom="0dp"
+        android:text="@string/fb_share"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:onClick="fb_share"
+        android:height="90dp"
+        style="@style/com_facebook_button"
+        />
 
     <com.twitter.sdk.android.core.identity.TwitterLoginButton
         android:id="@+id/twitter_button"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:textSize="25sp"
-        android:layout_below="@id/facebook_button"
+        android:layout_below="@id/fb_share"
+        android:layout_marginBottom="0dp" />
+
+
+    <Button
+        android:id="@+id/tweet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/twitter_button"
+        android:layout_marginBottom="0dp"
+        android:text="@string/tweet"
+        android:textSize="25sp"
+        android:textColor="@color/tw__solid_white"
+        android:background="@color/tw__blue_default"
+        android:onClick="tweet_it"
+        android:height="90dp"
+        style=""
         />
 
 </RelativeLayout>

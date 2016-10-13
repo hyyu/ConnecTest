@@ -1,9 +1,11 @@
 package com.adanibo.connectest;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
-import android.widget.TextView;
+import android.os.Environment;
+import android.view.View;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -11,6 +13,10 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.facebook.share.model.ShareContent;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
+import com.facebook.share.widget.ShareDialog.Mode;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
@@ -18,23 +24,25 @@ import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
+import com.twitter.sdk.android.tweetcomposer.TweetComposer;
+
+import java.io.File;
 
 import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends Activity {
 
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
-    private static final        int     FACEBOOK_REQUEST_CODE = 64206;
-    private static final        int     TWITTER_REQUEST_CODE = 140;
+    private static final        int     TWITTER_LOGIN_CODE = 140;
 
     private static final        String  TWITTER_KEY = "oumYXrXNC9CjIkdoUT6mYXTuT";
     private static final        String  TWITTER_SECRET = "Ua6WkK6uyuVUVm7REsgryyLBPt7icBKq5Qu09n1KwGItf4d5QW";
 
     private TwitterLoginButton  twitterBtn;
-    private LoginButton         facebookBtn;
 
     private CallbackManager     callbackManager;
 
+    private ShareContent        content;
     private LoginResult         fb_token;
 
     @Override
@@ -48,7 +56,8 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
 
-        twitterBtn = (TwitterLoginButton) findViewById(R.id.twitter_button);
+
+        LoginButton         facebookBtn;
 
         facebookBtn = (LoginButton) findViewById(R.id.facebook_button);
         facebookBtn.setReadPermissions("email");
@@ -70,6 +79,12 @@ public class MainActivity extends Activity {
                     }
                 });
 
+        content = new ShareLinkContent.Builder()
+                .setContentUrl(Uri.parse("https://developers.facebook.com"))
+                .build();
+
+        twitterBtn = (TwitterLoginButton) findViewById(R.id.twitter_button);
+
         twitterBtn.setCallback(new Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> result) {
@@ -85,14 +100,29 @@ public class MainActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Pass the activity result to the login button.
-    switch (requestCode) {
-        case TWITTER_REQUEST_CODE:
-            twitterBtn.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case TWITTER_LOGIN_CODE:
+                twitterBtn.onActivityResult(requestCode, resultCode, data);
 
-        default:
-            callbackManager.onActivityResult(requestCode, resultCode, data);
+            default:
+                callbackManager.onActivityResult(requestCode, resultCode, data);
+                break;
+        }
     }
+
+    public void fb_share(View v) {
+        ShareDialog shareDialog = new ShareDialog(this);
+        shareDialog.show(content, Mode.AUTOMATIC);
+    }
+
+    public void tweet_it(View v) {
+        String sdpath = Environment.getExternalStorageDirectory().toString();
+        File img_to_tweet = new File(sdpath + "/DCIM/fabric.png");
+        Uri myImageUri = Uri.fromFile(img_to_tweet);
+        TweetComposer.Builder builder = new TweetComposer.Builder(this)
+                .text("just setting up my Fabric.")
+                .image(myImageUri);
+        builder.show();
     }
 
 }

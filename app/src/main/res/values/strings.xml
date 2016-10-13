@@ -4,4 +4,6 @@
     <string name="failure">Login unsuccessful</string>
     <string name="facebook_app_id">1676191356032096</string>
     <string name="fb_login_protocol_scheme">fb1676191356032096</string>
+    <string name="fb_share">Share on Facebook</string>
+    <string name="tweet">Tweet it</string>
 </resources>
