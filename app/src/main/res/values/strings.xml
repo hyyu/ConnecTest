@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">ConnecTest</string>
-    <string name="success">Login successful</string>
-    <string name="failure">Login unsuccessful</string>
+    <string name="facebook_msg">Facebook</string>
+    <string name="facebook_cnt">Facebook Activity</string>
+    <string name="twitter_msg">Twitter</string>
+    <string name="twitter_cnt">Twitter Activity</string>
+
     <string name="facebook_app_id">1676191356032096</string>
     <string name="fb_login_protocol_scheme">fb1676191356032096</string>
-    <string name="fb_share">Share on Facebook</string>
-    <string name="tweet">Tweet it</string>
+    <string name="title_activity_facebook">FacebookActivity</string>
+    <string name="fb_icon">facebook icon</string>
+    <string name="login">Log in with Facebook</string>
+    <string name="share">Share on Facebook</string>
+    <string name="twitter_login">Log in with Twitter</string>
+    <string name="twitter">Twitter API</string>
+    <string name="twitter_tweet">Tweet</string>
 </resources>
