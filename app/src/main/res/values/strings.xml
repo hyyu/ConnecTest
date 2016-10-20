@@ -4,6 +4,8 @@
     <string name="facebook_cnt">Facebook Activity</string>
     <string name="twitter_msg">Twitter</string>
     <string name="twitter_cnt">Twitter Activity</string>
+    <string name="Instagram">Instagram</string>
+    <string name="Instagram_cnt">Instagram Activity</string>
 
     <string name="facebook_app_id">1676191356032096</string>
     <string name="fb_login_protocol_scheme">fb1676191356032096</string>
@@ -11,7 +13,13 @@
     <string name="fb_icon">facebook icon</string>
     <string name="login">Log in with Facebook</string>
     <string name="share">Share on Facebook</string>
+
     <string name="twitter_login">Log in with Twitter</string>
     <string name="twitter">Twitter API</string>
     <string name="twitter_tweet">Tweet</string>
+
+    <string name="client_id">4163553193bd48969b36cdf72fe5f24b</string>
+    <string name="redirect_url">http://www.google.fr</string>
+    <string name="login_instagram">Log in with Instagram</string>
+    <string name="share_instagram">Post on Instagram</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.adanibo.connectest;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
@@ -12,8 +11,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        ActionBar appbar;
 
         setContentView(R.layout.activity_main);
 
@@ -31,6 +28,15 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TwitterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        LinearLayout istgScn = (LinearLayout) findViewById(R.id.activity_istg);
+        istgScn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, IstgActivity.class);
                 startActivity(intent);
             }
         });
