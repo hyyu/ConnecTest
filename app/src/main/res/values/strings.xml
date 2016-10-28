@@ -13,10 +13,13 @@
     <string name="fb_icon">facebook icon</string>
     <string name="login">Log in with Facebook</string>
     <string name="share">Share on Facebook</string>
+    <string name="msng">Send by Messenger</string>
 
     <string name="twitter_login">Log in with Twitter</string>
     <string name="twitter">Twitter API</string>
     <string name="twitter_tweet">Tweet</string>
+    <string name="twitter_timeline">Show Timeline</string>
+
 
     <string name="client_id">4163553193bd48969b36cdf72fe5f24b</string>
     <string name="redirect_url">http://www.google.fr</string>

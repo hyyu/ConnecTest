@@ -70,6 +70,15 @@ public class TwitterActivity extends Activity {
             }
         });
 
+        LinearLayout twtTmlScn = (LinearLayout) findViewById(R.id.twitter_timeline);
+        twtTmlScn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TwitterActivity.this, TimelineActivity.class);
+                startActivity(intent);
+            }
+        });
+
     } /* onCreate end */
 
     @Override

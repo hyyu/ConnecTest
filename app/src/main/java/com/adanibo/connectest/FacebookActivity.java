@@ -15,6 +15,8 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.facebook.messenger.MessengerUtils;
+import com.facebook.messenger.ShareToMessengerParams;
 import com.facebook.share.model.ShareContent;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
@@ -77,6 +79,20 @@ public class FacebookActivity extends Activity {
                         .build();
                 ShareDialog shareDialog = new ShareDialog(FacebookActivity.this);
                 shareDialog.show(mShareLinkContent, Mode.AUTOMATIC);
+            }
+        });
+
+        LinearLayout msngScn = (LinearLayout) findViewById(R.id.msng);
+        msngScn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String mimeType = "image/png";
+                Uri contentUri = Uri.parse("android.resource://com.adanibo.facebooksample/drawable/fabric");
+                ShareToMessengerParams shareToMessengerParams =
+                        ShareToMessengerParams.newBuilder(contentUri, mimeType)
+                                .build();
+                MessengerUtils.shareToMessenger(FacebookActivity.this,
+                        0, shareToMessengerParams);
             }
         });
 

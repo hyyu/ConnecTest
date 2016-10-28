@@ -37,11 +37,9 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-
         <meta-data
             android:name="com.instagram.instagramapi.InstagramAppClientId"
             android:value="@string/client_id" />
-
         <meta-data
             android:name="com.instagram.instagramapi.InstagramAppRedirectURL"
             android:value="@string/redirect_url" />
@@ -51,7 +49,8 @@
             android:label="@string/title_activity_facebook"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".TwitterActivity" />
-        <activity android:name=".IstgActivity"></activity>
+        <activity android:name=".IstgActivity" />
+        <activity android:name=".TimelineActivity"></activity>
     </application>
 
 </manifest>

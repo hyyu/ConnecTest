@@ -63,6 +63,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
+        android:layout_marginBottom="1dp"
         android:layout_weight="1"
         android:id="@+id/fb_share"
         android:clickable="true"
@@ -101,6 +102,53 @@
                 android:layout_marginStart="20dp"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/share_icon" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:id="@+id/msng"
+        android:clickable="true"
+        >
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/com_facebook_messenger_blue"
+            android:paddingTop="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="20dp"
+            >
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/messenger_bubble_large_white"
+                android:contentDescription="@string/fb_icon"
+                android:id="@+id/msng_icon"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/msng"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/com_facebook_button_text_color"
+                android:id="@+id/msng_textView"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/msng_icon"
+                />
 
         </RelativeLayout>
 
